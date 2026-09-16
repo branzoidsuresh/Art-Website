@@ -1,0 +1,192 @@
+
+  :root{
+    --accent-blue:#1877e6;
+    --text-dark:#1a1a1a;
+    --text-muted:#6b7280;
+  }
+
+  body{
+    margin:0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background:#f5f6f8;
+  }
+
+  /* ===== Navbar shell ===== */
+  .art-navbar{
+    background:#ffffff;
+    border-bottom:1px solid #e5e7eb;
+    box-shadow:0 1px 4px rgba(0,0,0,0.04);
+    padding-top:.6rem;
+    padding-bottom:.6rem;
+  }
+
+  /* ===== Logo ===== */
+  .art-navbar .navbar-brand{
+    padding:0;
+    margin:0;
+  }
+  .art-navbar .navbar-brand img{
+    height:52px;
+    width:auto;
+    display:block;
+  }
+
+  /* ===== Nav links ===== */
+  .art-navbar .nav-link{
+    color:var(--text-dark);
+    font-size:1.05rem;
+    font-weight:500;
+    padding:.5rem 1rem !important;
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:.45rem;
+  }
+  .art-navbar .nav-link i{
+    font-size:1.05rem;
+    color:var(--text-muted);
+    transition:color .15s ease;
+  }
+  .art-navbar .nav-link:hover{
+    color:var(--accent-blue);
+  }
+  .art-navbar .nav-link:hover i{
+    color:var(--accent-blue);
+  }
+  .art-navbar .nav-link.active i{
+    color:var(--accent-blue);
+  }
+  .art-navbar .nav-link.active{
+    color:var(--accent-blue) !important;
+    font-weight:600;
+  }
+  /* underline only under the active link, matches reference image */
+  .art-navbar .nav-link.active::after{
+    content:"";
+    position:absolute;
+    left:1rem;
+    right:1rem;
+    bottom:.1rem;
+    height:2px;
+    background:var(--accent-blue);
+  }
+
+  /* ===== Booking / phone block ===== */
+  .art-booking{
+    text-align:right;
+    line-height:1.25;
+    white-space:nowrap;
+  }
+  .art-booking .booking-label{
+    display:block;
+    font-size:.95rem;
+    color:var(--text-muted);
+  }
+  .art-booking .booking-number{
+    display:block;
+    font-size:1.5rem;
+    font-weight:700;
+    color:var(--text-dark);
+    letter-spacing:.5px;
+  }
+  .art-booking .booking-number a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  /* ===== Styled hamburger toggler ===== */
+  .art-navbar .navbar-toggler{
+    border:none;
+    box-shadow:none !important;
+    padding:.35rem;
+    width:44px;
+    height:44px;
+    border-radius:8px;
+    background:#eaf3ff;
+    align-items:center;
+    justify-content:center;
+    transition:background .2s ease;
+  }
+  @media (max-width: 991.98px){
+    .art-navbar .navbar-toggler{
+      display:flex;
+    }
+  }
+  .art-navbar .navbar-toggler:hover{
+    background:#dcebff;
+  }
+  /* remove default bootstrap icon, build custom 3-line -> X icon */
+  .art-navbar .navbar-toggler-icon{
+    background-image:none !important;
+    position:relative;
+    width:22px;
+    height:16px;
+  }
+  .art-navbar .navbar-toggler-icon span,
+  .art-navbar .navbar-toggler-icon::before,
+  .art-navbar .navbar-toggler-icon::after{
+    content:"";
+    position:absolute;
+    left:0;
+    width:100%;
+    height:2px;
+    border-radius:2px;
+    background:var(--accent-blue);
+    transition:transform .25s ease, opacity .2s ease, top .25s ease;
+  }
+  .art-navbar .navbar-toggler-icon::before{ top:0; }
+  .art-navbar .navbar-toggler-icon span{ top:7px; }
+  .art-navbar .navbar-toggler-icon::after{ top:14px; }
+
+  /* animate into an X when menu is open */
+  .art-navbar .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before{
+    top:7px;
+    transform:rotate(45deg);
+  }
+  .art-navbar .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after{
+    top:7px;
+    transform:rotate(-45deg);
+  }
+  .art-navbar .navbar-toggler:not(.collapsed) .navbar-toggler-icon span{
+    opacity:0;
+  }
+
+  /* ===== Responsive tweaks ===== */
+  @media (max-width: 991.98px){
+    .art-navbar .navbar-brand img{
+      height:42px;
+    }
+    .art-navbar .navbar-collapse{
+      margin-top:.75rem;
+      border-top:1px solid #eee;
+      padding-top:.75rem;
+    }
+    .art-navbar .nav-link.active::after{
+      display:none; /* underline style suits desktop row better */
+    }
+    .art-navbar .nav-link.active{
+      background:#eaf3ff;
+      border-radius:6px;
+    }
+    .art-booking{
+      text-align:left;
+      margin-top:.75rem;
+    }
+  }
+
+  @media (max-width: 575.98px){
+    .art-booking .booking-number{
+      font-size:1.25rem;
+    }
+    .art-navbar .navbar-brand img{
+      height:36px;
+    }
+  }
+
+  /* demo page filler so navbar can be judged in context */
+  .demo-content{
+    max-width:1000px;
+    margin:3rem auto;
+    padding:0 1rem;
+    color:#374151;
+  }
