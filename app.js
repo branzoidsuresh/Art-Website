@@ -59,3 +59,13 @@
 
   requestAnimationFrame(frame);
 })();
+
+
+(function(){
+    const track   = document.getElementById('marqueeTrack');
+    const content = document.getElementById('marqueeContent');
+    const clone   = content.cloneNode(true);
+    clone.removeAttribute('id');
+    clone.setAttribute('aria-hidden', 'true');
+    track.appendChild(clone);
+  })();

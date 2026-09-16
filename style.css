@@ -5,9 +5,21 @@
     --text-muted:#6b7280;
   }
 
+  @font-face {
+    font-family: 'Nohemi';
+    src: url('Assest/Nohemi-VF.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    font-family: 'Nohemi', sans-serif;
+}
+
   body{
     margin:0;
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: 'Nohemi', sans-serif;
     background:#f5f6f8;
   }
 
@@ -199,6 +211,7 @@
   padding: 70px 20px 0;
   text-align: center;
   overflow: hidden;
+  
 }
 
   .hero-video {
@@ -286,6 +299,7 @@
     -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
     mask-image:linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
     overflow:hidden;
+    padding-bottom: 5rem;
   }
 
   .carousel-stage{
@@ -347,4 +361,66 @@
       border-radius:12px;
       box-shadow:0 14px 24px rgba(0,0,0,.2);
     }
+  }
+
+   /* ===================== MARQUEE BAR ===================== */
+  .marquee-bar{
+    width:100%;
+    background:#FFD200;           /* yellow like reference */
+    overflow:hidden;
+    position:relative;
+    padding:18px 0;
+  }
+
+  .marquee-track{
+    display:flex;
+    align-items:center;
+    width:max-content;
+    white-space:nowrap;
+    animation:marqueeScroll 22s linear infinite;
+  }
+
+  /* pause on hover so text can be read */
+  .marquee-bar:hover .marquee-track{
+    animation-play-state:paused;
+  }
+
+  .marquee-item{
+    display:inline-flex;
+    align-items:center;
+    font-weight:800;
+    font-size:1.6rem;
+    color:#111111;
+    padding:0 22px;
+    letter-spacing:.2px;
+  }
+
+  .marquee-star{
+    font-size:1.3rem;
+    color:#111111;
+    padding:0 22px;
+    display:inline-flex;
+    line-height:1;
+  }
+
+  /* moves the track exactly one full set width to the left, then loops seamlessly
+     because the content is duplicated twice */
+  @keyframes marqueeScroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+
+  /* ===================== RESPONSIVE ===================== */
+  @media (max-width: 991.98px){
+    .marquee-bar{ padding:14px 0; }
+    .marquee-item{ font-size:1.25rem; padding:0 16px; }
+    .marquee-star{ font-size:1.05rem; padding:0 16px; }
+    .marquee-track{ animation-duration:18s; }
+  }
+
+  @media (max-width: 575.98px){
+    .marquee-bar{ padding:10px 0; }
+    .marquee-item{ font-size:.95rem; padding:0 10px; }
+    .marquee-star{ font-size:.85rem; padding:0 10px; }
+    .marquee-track{ animation-duration:14s; }
   }
