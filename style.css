@@ -262,7 +262,7 @@
     border:2px solid var(--accent-blue);
     border-radius:50px;
     padding:12px 30px;
-    font-weight:600;
+    font-weight:400;
     font-size:1.05rem;
     text-decoration:none;
     transition:transform .15s ease, box-shadow .15s ease;
@@ -279,7 +279,7 @@
     border:2px solid var(--accent-blue);
     border-radius:50px;
     padding:12px 30px;
-    font-weight:600;
+    font-weight:400;
     font-size:1.05rem;
     text-decoration:none;
     transition:transform .15s ease, background .15s ease;
@@ -345,7 +345,9 @@
   }
 
   @media (max-width: 575.98px){
-    .hero{ padding:50px 16px 0; }
+    .hero{ 
+       min-height: 550px;
+      padding:50px 16px 0; }
     .hero-title{ font-size:1.7rem; }
     .hero-actions{ margin-bottom:40px; }
     .btn-hero-primary, .btn-hero-outline{
