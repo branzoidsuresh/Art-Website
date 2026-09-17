@@ -23,7 +23,7 @@
   let lastTime = null;
   let paused = false;
 
-  stage.parentElement.addEventListener('mouseenter', () => paused = true);
+  stage.parentElement.addEventListener('mouseenter', () => paused = false);
   stage.parentElement.addEventListener('mouseleave', () => paused = false);
 
   function frame(t){
