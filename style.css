@@ -436,9 +436,9 @@
 
   .intro-para{
     color:var(--text-muted);
-    font-size:1.5rem;
+    font-size:1.2rem;
     line-height:1.6;
-    margin:0;
+    max-width:1000px;
   }
 
 
@@ -824,4 +824,179 @@
       text-align:center;
       gap:6px;
     }
+  }
+
+
+  .process-section{
+    padding:70px 20px;
+    max-width:1180px;
+    margin:0 auto;
+    transform: scale(1.1);
+  }
+
+  /* ===================== DESKTOP / TABLET LAYOUT ===================== */
+  .process-desktop{ display:block; }
+  .process-mobile{ display:none; }
+
+  .process-images-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:24px;
+  }
+
+  .process-step{
+    position:relative;
+  }
+
+  .process-image{
+    
+    filter: drop-shadow(2px 2px 1px rgba(0,0,0,.2));
+    /* box-shadow:0 15px 30px rgba(0,0,0,.12); */
+    height:190px;
+    width: 190px;
+  }
+
+  .process-image img{
+    width:100%;
+    height:100%;
+    
+    display:block;
+  }
+
+  /* icon sits centered under its own image, in the same column */
+  .process-icon-circle{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:var(--accent-yellow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.6rem;
+    color:var(--text-dark);
+    box-shadow:0 8px 16px rgba(255,210,0,.35);
+    margin:18px auto 16px;
+    position:relative;
+    z-index:2;
+  }
+
+  /* connector line: spans from this step's icon right edge to the next
+     step's icon left edge. Since it's a child of .process-step (the grid
+     column itself), "100%" below always equals this column's own width —
+     so the math holds at every viewport size without any JS. */
+  .process-connector-line{
+    position:absolute;
+    left:calc(50% + 32px);
+    width:calc(100% - 40px); /* remaining half-column + 24px grid gap + next column's half-space to its icon */
+    top:240px; /* image height (190px) + icon margin-top (18px) + icon radius (32px) */
+    height:2px;
+    background:var(--accent-yellow);
+    z-index:1;
+  }
+
+  .process-arrow-dot{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%, -50%);
+    width:28px;
+    height:28px;
+    border-radius:50%;
+    background:var(--accent-yellow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:.8rem;
+    color:var(--text-dark);
+    z-index:2;
+  }
+
+  .process-label{
+    text-align:center;
+    font-weight:700;
+    font-size:1.05rem;
+    letter-spacing:2px;
+    color:var(--text-dark);
+    text-transform:uppercase;
+  }
+
+  .process-label::after{
+    content:"";
+    display:block;
+    width:26px;
+    height:3px;
+    background:var(--accent-yellow);
+    border-radius:2px;
+    margin:10px auto 0;
+  }
+
+  /* ===================== MOBILE LAYOUT ===================== */
+  .process-mobile-step{
+    text-align:center;
+    margin-bottom:10px;
+  }
+
+  .process-mobile-image{
+    
+    
+    height:200px;
+    width: 200px;
+    margin-bottom:18px;
+  }
+
+  .process-mobile-image img{
+    width:100%;
+    height:100%;
+    
+    display:block;
+  }
+
+  .process-mobile-icon{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:var(--accent-yellow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.5rem;
+    color:var(--text-dark);
+    margin:0 auto 14px;
+    box-shadow:0 8px 16px rgba(255,210,0,.35);
+  }
+
+  .process-mobile-label{
+    font-weight:700;
+    font-size:1rem;
+    letter-spacing:2px;
+    color:var(--text-dark);
+    text-transform:uppercase;
+  }
+
+  .process-mobile-label::after{
+    content:"";
+    display:block;
+    width:26px;
+    height:3px;
+    background:var(--accent-yellow);
+    border-radius:2px;
+    margin:10px auto 0;
+  }
+
+  .process-mobile-connector{
+    display:flex;
+    justify-content:center;
+    margin:22px 0;
+  }
+
+  .process-mobile-connector i{
+    font-size:1.4rem;
+    color:var(--accent-yellow);
+  }
+
+  /* ===================== RESPONSIVE BREAKPOINT ===================== */
+  @media (max-width: 767.98px){
+    .process-desktop{ display:none; }
+    .process-mobile{ display:block; }
+    .process-section{ padding:50px 20px; }
   }
